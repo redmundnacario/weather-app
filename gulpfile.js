@@ -80,6 +80,7 @@ gulp.task("html", function(done){
         }))
         .pipe(gulp.dest(filesDestpath.html))
     )
+    done()
 })
 
 // Sass
@@ -112,7 +113,10 @@ gulp.task("sass", function(done) {
 });
 
 
-// sourceJS = ["./node_modules/babel-polyfill/dist/polyfill.min.js"].concat(filesPath.js)
+sourceJS =  [
+    "./src/assets/js/index.js",
+    "./src/assets/js/polyfill.min.js"// needed if JS needs ASYNC AWAIT
+]
 
 gulp.task("javascript", function(done) {
     return (
@@ -126,9 +130,9 @@ gulp.task("javascript", function(done) {
                 presets: [
                     '@babel/preset-env',
                 ],
-                // plugins:[
-                //     "@babel/plugin-transform-regenerator"
-                // ]
+                plugins:[
+                    "@babel/plugin-transform-regenerator"
+                ]
             })
         )
         .pipe(terser())
