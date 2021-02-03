@@ -1,13 +1,10 @@
-
 export class WeatherAPI{
 
     constructor () {
-        this.data = undefined
-        this.lat = undefined,
-        this.lon = undefined
-        this.default_lat = 14.5794,
-        this.default_lon = 121.0359,
-        this.url = undefined
+        this.data = undefined;
+        this.default_lat = 14.5794;
+        this.default_lon = 121.0359;
+        this.url = undefined;
     }
 
     async getAllWeatherData(lat, lon){
@@ -70,4 +67,33 @@ export class WeatherAPI{
         return this
     }
 
+    async getAllSampleWeatherData(){
+        let currentWx = await this.setSampleCurrentWeatherdata()
+                            .getWeatherData()
+                            .then(result => result.data)
+        // console.log(currentWx)
+
+
+        let forecastWx = await this.setSampleForecastData()
+                            .getWeatherData()
+                            .then(result => result.data)
+        // console.log(forecastWx)
+
+        this.data = {
+            current : currentWx,
+            forecast : forecastWx
+        }
+        return this.data
+    }
+
+    // read sample data
+    setSampleCurrentWeatherdata() {
+        this.url = '/assets/js/sample_data/current_weather_data.json'
+        return this
+    }
+
+    setSampleForecastData() {
+        this.url = '/assets/js/sample_data/forecast_data.json'
+        return this
+    }
 }

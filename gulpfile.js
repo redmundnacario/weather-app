@@ -38,6 +38,7 @@ filesPath = {
     sass: "./src/assets/sass/**/*.scss",
     image: "./src/assets/img/**/*.+(png|jpg|svg)",
     js: "./src/assets/js/**/*.js",
+    json : "./src/assets/js/sample_data/**/*.json"
     // gif: "./src/assets/img/**/*.gif",
     // font: "./src/assets/fonts/**/*",
     // audio: "./src/assets/audios/**/*"
@@ -50,6 +51,7 @@ filesDestpath = {
     sass : "./dist/assets/css",
     image: "./dist/assets/img",
     js : "./dist/assets/js",
+    json : "./dist/assets/js/sample_data"
     // gif: "./dist/assets/img",
     // font: "./dist/assets/fonts",
     // audio: "./dist/assets/audios"
@@ -134,6 +136,17 @@ gulp.task("javascript", function(done) {
     );
     done();
 });
+
+// Copy json files
+
+gulp.task ("json", function(done){
+    return (
+        gulp.src(filesPath.json)
+        .pipe(plumber())
+        .pipe(gulp.dest(filesDestpath.json))
+    )
+    done()
+})
 
 // Images optimization
 
@@ -235,7 +248,8 @@ gulp.task("watch", function() {
                 filesPath.sass,
                 filesPath.image,
                 filesPath.js,
-                './src/config.js'
+                './src/config.js',
+                filesPath.json,
                 // filesPath.gif,
                 // filesPath.audio,
                 // filesPath.font,
@@ -245,7 +259,8 @@ gulp.task("watch", function() {
                             "sass",
                             "imagemin",
                             "javascript",
-                            "config"
+                            "config",
+                            "json"
                             // "copyGifs",
                             // "copyAudios",
                             // "copyFonts"
@@ -269,7 +284,8 @@ gulp.task("serve", gulp.parallel([
     "sass",
     "imagemin",
     "javascript", 
-    "config"
+    "config",
+    "json"
     // "copyGifs",
     // "copyAudios",
     // "copyFonts"
