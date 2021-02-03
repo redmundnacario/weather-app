@@ -113,11 +113,6 @@ gulp.task("sass", function(done) {
 });
 
 
-sourceJS =  [
-    "./src/assets/js/index.js",
-    "./src/assets/js/polyfill.min.js"// needed if JS needs ASYNC AWAIT
-]
-
 gulp.task("javascript", function(done) {
     return (
         gulp.src(filesPath.js)
@@ -129,9 +124,6 @@ gulp.task("javascript", function(done) {
             babel({
                 presets: [
                     '@babel/preset-env',
-                ],
-                plugins:[
-                    "@babel/plugin-transform-regenerator"
                 ]
             })
         )
@@ -177,6 +169,14 @@ gulp.task("copyAudios", function(done){
         gulp.src(filesPath.audio)
         .pipe(plumber())
         .pipe(gulp.dest(filesDestpath.audio))
+    )
+})
+
+gulp.task("config", function(done){
+    return(
+        gulp.src('./src/config.js')
+        .pipe(plumber())
+        .pipe(gulp.dest('./dist'))
     )
 })
 
@@ -235,6 +235,7 @@ gulp.task("watch", function() {
                 filesPath.sass,
                 filesPath.image,
                 filesPath.js,
+                './src/config.js'
                 // filesPath.gif,
                 // filesPath.audio,
                 // filesPath.font,
@@ -243,7 +244,8 @@ gulp.task("watch", function() {
                             gulp.series(["kit", "html"]),
                             "sass",
                             "imagemin",
-                            "javascript", 
+                            "javascript",
+                            "config"
                             // "copyGifs",
                             // "copyAudios",
                             // "copyFonts"
@@ -267,6 +269,7 @@ gulp.task("serve", gulp.parallel([
     "sass",
     "imagemin",
     "javascript", 
+    "config"
     // "copyGifs",
     // "copyAudios",
     // "copyFonts"
