@@ -3,10 +3,19 @@
 // MODEL.JS
 // ====================================================== //
 
-import {Event} from '../event/_event.js';
-
 export class WeatherModel {
     constructor(){
-        this.getWeatherDataEvent = new Event()
+        this.weatherData
+
     }
+    async loadCurrentData(){
+        
+        this.weatherData = await new WeatherAPI()
+                            .getAllSampleWeatherData()
+                            .then(result => result) 
+        
+        return this.weatherData
+    }
+
+
 }

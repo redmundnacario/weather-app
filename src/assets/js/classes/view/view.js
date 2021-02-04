@@ -3,13 +3,9 @@ import {Event} from '../event/_event.js';
 
 export class WeatherView {
     constructor() {
-        this.getWeatherDataEvent = new Event()
-    }
-
-    render() {
-
         // Dom Selectors
         this.app = document.getElementById("app") //app section 
+
         this.row1 = document.getElementById("row1")
         this.row2 = document.getElementById("row2")
         this.row3 = document.getElementById("row3")
@@ -34,6 +30,9 @@ export class WeatherView {
         this.currentStats.id = "currentStatsId"
         this.forecastWxHourly.id = "WxHourlyId"
         this.forecastWxDaily.id = "WxDailyId"
+    }
+
+    async render(handler) {
 
         // Append created elements to Dom
         this.row1.appendChild(this.currentlocationDate)
@@ -42,10 +41,16 @@ export class WeatherView {
         this.row3.appendChild(this.forecastWxHourly)
         this.row4.appendChild(this.forecastWxDaily)
 
-        // // Event listeners
-        // this.app.onload = () => {
-        //     this.getWeatherDataEvent.trigger()
-        // }
+        // Load Weather data
+        let result = await handler()
+
+        // console.log(result)
+
+        this.updateCurrentLocationDate(result.current) 
+        this.updateCurrentTemp(result.current) 
+        this.updateCurrentStats(result.current) 
+        this.updateWxHourly(result.forecast.hourly) 
+        this.updateWxDaily(result.forecast.daily)
     }
 
     updateCurrentLocationDate(data) {
@@ -218,4 +223,11 @@ export class WeatherView {
         }
     }
 
+    // async _bindLoadWeatherData(handler){
+    //     // Event listeners
+    //     let result = await handler()
+    //     console.log(result)
+    //     this.updateCurrentLocationDate(result.current) 
+
+    // }
 }
