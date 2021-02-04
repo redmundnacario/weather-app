@@ -1,7 +1,13 @@
-console.log("connected to JS")
 
-// import {Controller} from './controller/controller.js';
+/// ====================================================== //
+// INDEX.JS
+// ====================================================== //
+console.log("connected to JS")
 
 // const app = new Controller();
 
 // app.run();
+
+
+const sample_view = new WeatherView()
+                        .render()

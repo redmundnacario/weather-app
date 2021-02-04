@@ -3742,6 +3742,16 @@ gulp-cssnano@^2.1.3:
     plugin-error "^1.0.1"
     vinyl-sourcemaps-apply "^0.2.1"
 
+gulp-filelist@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/gulp-filelist/-/gulp-filelist-2.0.5.tgz#4d4a08f2cc2d1145cefaf3bb8d4c7af007556f35"
+  integrity sha512-gXl5LcgqpZ5g5kAszw7L1a6FmDqrCXu5hzbiF0CpJHIxTWnzhydF0ljd1vx8OJDxUR8UuaTnea3PfRymhGyb0Q==
+  dependencies:
+    minimatch "^3.0.4"
+    plugin-error "^1.0.1"
+    through2 "^4.0.2"
+    vinyl "^2.2.1"
+
 gulp-htmlmin@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/gulp-htmlmin/-/gulp-htmlmin-5.0.1.tgz#90fc5e8ad0425a9e86d5d521427184e7276365e7"
@@ -3800,6 +3810,15 @@ gulp-notify@^3.2.0:
     node.extend "^2.0.0"
     plugin-error "^0.1.2"
     through2 "^2.0.3"
+
+gulp-order@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-order/-/gulp-order-1.2.0.tgz#3193e89a759602970907e93ec6e3fb44bae8434c"
+  integrity sha512-RduLhxbEye1NT6fnvev3792VUsZA8F+5zRFczAgpOSELz587Fv1Nn7l4ZiaiQzFPV7aECh1WRc2dPWjjcxCa0g==
+  dependencies:
+    minimatch "~3.0.4"
+    stable "~0.1.8"
+    through "~2.3.8"
 
 gulp-plumber@^1.2.1:
   version "1.2.1"
@@ -5217,7 +5236,7 @@ mimic-response@^1.0.0:
   resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
   integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
 
-minimatch@^3.0.2, minimatch@^3.0.4, minimatch@~3.0.2:
+minimatch@^3.0.2, minimatch@^3.0.4, minimatch@~3.0.2, minimatch@~3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -7232,7 +7251,7 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-stable@^0.1.8:
+stable@^0.1.8, stable@~0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
   integrity sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==
@@ -7631,7 +7650,7 @@ through2@~0.6.1:
     readable-stream ">=1.0.33-1 <1.1.0-0"
     xtend ">=4.0.0 <4.1.0-0"
 
-through@^2.3.8:
+through@^2.3.8, through@~2.3.8:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
@@ -8053,7 +8072,7 @@ vinyl@^0.5.0:
     clone-stats "^0.0.1"
     replace-ext "0.0.1"
 
-vinyl@^2.0.0, vinyl@^2.1.0, vinyl@^2.2.0:
+vinyl@^2.0.0, vinyl@^2.1.0, vinyl@^2.2.0, vinyl@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-2.2.1.tgz#23cfb8bbab5ece3803aa2c0a1eb28af7cbba1974"
   integrity sha512-LII3bXRFBZLlezoG5FfZVcXflZgWP/4dCwKtxd5ky9+LOtM4CS3bIRQsmR1KMnMW07jpE8fqR2lcxPZ+8sJIcw==

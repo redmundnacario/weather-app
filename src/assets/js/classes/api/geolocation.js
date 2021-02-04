@@ -1,4 +1,9 @@
-export class Geolocation {
+
+/// ====================================================== //
+// GEOLOCATION.JS
+// ====================================================== //
+
+class Geolocation {
     constructor(){
         this.data = undefined;
     }

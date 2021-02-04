@@ -219,6 +219,3 @@ export class WeatherView {
     }
 
 }
-
-
-

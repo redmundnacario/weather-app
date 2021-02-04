@@ -1,4 +1,9 @@
-export class Geocoding {
+
+/// ====================================================== //
+// GEOCODING.JS
+// ====================================================== //
+
+class Geocoding {
     constructor() {
         this.url = undefined;
         this.data = undefined;

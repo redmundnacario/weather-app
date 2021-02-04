@@ -1,4 +1,9 @@
-export class WeatherAPI{
+
+/// ====================================================== //
+// WEATHER.JS
+// ====================================================== //
+
+class WeatherAPI{
 
     constructor () {
         this.data = undefined;

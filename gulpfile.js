@@ -17,7 +17,8 @@ const zip = require("gulp-zip");//zipping whole project
 const del = require("del");//delete dist files
 const plumber = require("gulp-plumber");// for debugging
 const notifier = require("gulp-notifier");//notifies when tasks were done successfully
-
+const filelist = require('gulp-filelist')
+const order = require('gulp-order')
 const babel = require("gulp-babel");//convert all js to ES5 for compatibility with diff. browsers
 
 
@@ -121,6 +122,20 @@ gulp.task("javascript", function(done) {
         .pipe(plumber({errorHandler: notifier.error}))
         .pipe(sourcemaps.init())
         .pipe(stripImportExport())
+        .pipe(order(
+            [   
+                "src/assets/js/polyfill.min.js",
+                "src/assets/js/classes/event.js",
+                "src/assets/js/classes/api/*.js",
+                "src/assets/js/classes/firebase/*.js",
+                "src/assets/js/classes/model/*.js",
+                "src/assets/js/classes/view/*.js",
+                "src/assets/js/classes/controller/*.js",
+                "src/assets/js/_*.js",
+                "src/assets/js/index.js",
+            ],
+            { base: './' }
+        ))
         .pipe(concat("index.min.js"))
         .pipe(
             babel({
@@ -134,6 +149,15 @@ gulp.task("javascript", function(done) {
         .pipe(gulp.dest(filesDestpath.js))
         .pipe(notifier.success("js"))
     );
+    done();
+});
+
+gulp.task("listJSfiles", function(done) {
+    return (
+        gulp.src(filesPath.js)
+        .pipe(filelist('filelist.json'))
+        .pipe(gulp.dest("."))
+    )
     done();
 });
 
@@ -258,7 +282,7 @@ gulp.task("watch", function() {
                             gulp.series(["kit", "html"]),
                             "sass",
                             "imagemin",
-                            "javascript",
+                            gulp.series(["javascript", "listJSfiles"]),
                             "config",
                             "json"
                             // "copyGifs",
@@ -283,7 +307,7 @@ gulp.task("serve", gulp.parallel([
     gulp.series(["kit", "html"]),
     "sass",
     "imagemin",
-    "javascript", 
+    gulp.series(["javascript", "listJSfiles"]), 
     "config",
     "json"
     // "copyGifs",
