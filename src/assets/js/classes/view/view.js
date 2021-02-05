@@ -58,7 +58,7 @@ export class WeatherView {
         this.currLocH1 = document.createElement("h1")
         this.currLocH1.innerText = data.name
         this.currDateH3 = document.createElement("h3")
-        this.currDateH3.innerText = data.dt
+        this.currDateH3.innerText = convertUnix(data.dt)
 
         this.currentlocationDate.appendChild(this.currLocH1)
         this.currentlocationDate.appendChild(this.currDateH3)
@@ -71,10 +71,10 @@ export class WeatherView {
 
         this.currTemp = document.createElement("h1")
         this.currTemp.id = "currentTempId"
-        this.currTemp.innerText = data.main.feels
+        this.currTemp.innerText = data.main.feels_like
 
         this.weatherDescription = document.createElement("div")
-        this.weatherDescription.innerHTML = `<p>${data.weather.description}</p>`
+        this.weatherDescription.innerHTML = `<p>${data.weather[0].description}</p>`
 
         let container = document.createElement("div")
         container.appendChild(this.currTemp)

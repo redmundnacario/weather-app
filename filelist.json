@@ -7,7 +7,7 @@
   "src/assets/js/classes/api/geolocation.js",
   "src/assets/js/classes/api/weather.js",
   "src/assets/js/classes/controller/controller.js",
-  "src/assets/js/classes/view/view.js",
   "src/assets/js/classes/model/model.js",
-  "src/assets/js/classes/model/navigation.js"
+  "src/assets/js/classes/model/navigation.js",
+  "src/assets/js/classes/view/view.js"
 ]

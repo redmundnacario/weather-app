@@ -1,0 +1,20 @@
+#home {
+    width:90vw;
+    display: flex;
+    justify-content: center;
+    #leftArticleId{
+        height: 90vh;
+        width:50%;
+    }
+    #rightArticleId{
+        height: 90vh;
+        width:50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #homeImageId{
+            width:35vw;
+            height: auto;
+        }
+    }
+}

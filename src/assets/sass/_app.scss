@@ -1,3 +1,48 @@
 #app {
-    width:70vw;
+    width:40vw;
+
+    #row2 {
+        display:flex;
+
+        #currentWxDescId{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            width: 50%;
+            // flex-flow: column;
+            
+        }
+
+        #currentStatsId {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            width: 50%;
+            // flex-flow: column;
+
+            // .status-box{
+            //     width:30%;
+            // }
+        }
+    }
+
+    #row3 {
+        #WxHourlyId{
+            
+            display: flex;
+            justify-content: space-between;
+            // flex-flow: column;
+        }
+    }
+    #row4 {
+        #WxDailyId{
+            display: flex;
+            flex-flow: column;
+            width:100%;
+
+            .daily-wx-box{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+    
 }
