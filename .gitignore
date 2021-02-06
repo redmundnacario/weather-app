@@ -1,6 +1,7 @@
 node_modules
 dist
 src/config.js
+src/assets/js/classes/firebase/firebase.js
 src/assets/js/sample_data
 # Misc
 **/.DS_Store

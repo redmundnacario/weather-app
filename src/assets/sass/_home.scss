@@ -1,20 +1,36 @@
 #home {
-    width:90vw;
+    width:70vw;
+    min-height: 80vh !important;
     display: flex;
     justify-content: center;
     #leftArticleId{
-        height: 90vh;
+        height: 100%;
         width:50%;
+        
+        // display: flex;
+        // align-items: center;
+        #indtroduction{
+            margin-top:20vh;
+
+            .homeBtnContainer{
+                margin-top: 10vh;
+            }
+        }
     }
     #rightArticleId{
-        height: 90vh;
+        height: 100%;
         width:50%;
         display: flex;
         justify-content: center;
         align-items: center;
+
         #homeImageId{
-            width:35vw;
+            width:30vw;
             height: auto;
+            position: absolute;
+            top: 20vh; 
+            left: 75vw;
+            transform: translate(-30vh)
         }
     }
 }

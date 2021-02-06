@@ -125,9 +125,9 @@ gulp.task("javascript", function(done) {
         .pipe(order(
             [   
                 "src/assets/js/polyfill.min.js",
+                "src/assets/js/classes/firebase/*.js",
                 "src/assets/js/classes/event.js",
                 "src/assets/js/classes/api/*.js",
-                "src/assets/js/classes/firebase/*.js",
                 "src/assets/js/classes/model/*.js",
                 "src/assets/js/classes/view/*.js",
                 "src/assets/js/classes/controller/*.js",

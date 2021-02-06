@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Redmund Nacario">
-    <title>PayongPanahon</title>
+    <title>Payong Panahon</title>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/jpg" href="./assets/img/Redmundnacario.png"/>
     <!-- For link preview -->
@@ -14,10 +14,23 @@
     <meta property="og:image" content="">
     <meta property="og:description" content="Online Chess">
 
+    <!-- Materializ CSS -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.min.css"/>
+
     <!-- JS -->
-    <script type='text/javascript' src='./config.js'></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js" defer></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js" defer></script> -->
+    <!-- Other Important JS files -->
+    <script type='text/javascript' src='./config.js' defer></script>
     <script src='./assets/js/index.min.js' defer></script>
 </head>
 <body>
@@ -25,7 +38,11 @@
         <!-- @include _navbar.kit -->
         <!-- @include _home.kit -->
         <!-- @include _app.kit -->
-        
+        <!-- @include _signup.kit -->
+        <!-- @include _login.kit -->
+        <img id="blobId1" src="./assets/img/blob.svg" alt="">
     </main>
 </body>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>

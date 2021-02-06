@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Redmund Nacario">
-    <title>PayongPanahon</title>
+    <title>Payong Panahon</title>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/jpg" href="./assets/img/Redmundnacario.png"/>
     <!-- For link preview -->
@@ -14,36 +14,112 @@
     <meta property="og:image" content="">
     <meta property="og:description" content="Online Chess">
 
+    <!-- Materializ CSS -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.min.css"/>
+
     <!-- JS -->
-    <script type='text/javascript' src='./config.js'></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js" defer></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js" defer></script> -->
+    <!-- Other Important JS files -->
+    <script type='text/javascript' src='./config.js' defer></script>
     <script src='./assets/js/index.min.js' defer></script>
 </head>
 <body>
     <main>
-        <nav>
-    
+        <!-- Navbar -->
+<nav class="z-depth-0 transparent">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo grey-text">
+        <!-- <img src="img/logo.svg" style="width: 180px; margin-top: 10px;"> -->
+        <!-- <h1 class="appName-navbar"> -->
+            Payong Panahon
+        <!-- </h1> -->
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Weather</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+        </span>
+      </ul>
+    </div>
 </nav>        <section id="home">
     <article id="leftArticleId">
         <div id="indtroduction">
-            <h1 id="companyNameH1">PayongPanahon</h1>
-            <h3 id="introContent">Be updated with the latest weather information
+            <h1 id="companyNameH1">Payong Panahon</h1>
+            <h3 id="introContent" class="grey-text">Be updated with the latest weather information
                 at your fingertips!
             </h3>
-            <button>Join Now!</button>
+            <div class="homeBtnContainer">
+                <button class="waves-effect waves-light btn btn-large">
+                    <i class="material-icons right">cloud</i>Subscribe</button>
+            </div>
 
         </div>
     </article>
     <article id="rightArticleId">
         <img id="homeImageId" src="./assets/img/weather-animate.svg" alt="">
     </article>
-</section>        <section id="app">
+</section>        <section id="app" class="hidden">
     <div id="row1"></div>
     <div id="row2"></div>
     <div id="row3"></div>
     <div id="row4"></div>
-</section>        
+</section>        <!-- SIGN UP MODAL -->
+<div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form" method="POST">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+      </form>
+    </div>
+</div>        <!-- LOGIN MODAL -->
+<div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>        <img id="blobId1" src="./assets/img/blob.svg" alt="">
     </main>
 </body>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
