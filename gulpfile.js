@@ -211,7 +211,7 @@ gulp.task("copyAudios", function(done){
 
 gulp.task("config", function(done){
     return(
-        gulp.src('./src/config.js')
+        gulp.src(['./src/config.js','./src/firebase.js'])
         .pipe(plumber())
         .pipe(gulp.dest('./dist'))
     )

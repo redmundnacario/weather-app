@@ -1,5 +1,29 @@
-// login
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
 
+// Make auth and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+// console.log(firebase)
+// console.log(auth)
+// console.log(db)
+
+// // Firestore settings
+// // db.settings({timestampsInSnapshots: true});
+
+
+// listen for auth status changes
+auth.onAuthStateChanged(user => {
+    if (user) {
+      console.log('user logged in: ', user);
+    } else {
+      console.log('user logged out');
+    }
+})
+
+
+// sign up
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -10,7 +34,7 @@ signupForm.addEventListener('submit', (e) => {
 
     // sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
-        console.log(cred.user);
+        // console.log(cred.user);
         // close the signup modal & reset form
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
@@ -22,9 +46,7 @@ signupForm.addEventListener('submit', (e) => {
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
   e.preventDefault();
-  auth.signOut().then(() => {
-    console.log('user signed out');
-  })
+  auth.signOut()
 });
 
 // login
@@ -38,7 +60,7 @@ loginForm.addEventListener('submit', (e) => {
 
   // log the user in
   auth.signInWithEmailAndPassword(email, password).then((cred) => {
-    console.log(cred.user);
+    // console.log(cred.user);
     // close the signup modal & reset form
     const modal = document.querySelector('#modal-login');
     M.Modal.getInstance(modal).close();
