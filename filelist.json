@@ -6,9 +6,9 @@
   "src/assets/js/classes/api/geocoding.js",
   "src/assets/js/classes/api/geolocation.js",
   "src/assets/js/classes/api/weather.js",
+  "src/assets/js/classes/controller/controller.js",
   "src/assets/js/classes/firebase/auth.js",
   "src/assets/js/classes/model/model.js",
   "src/assets/js/classes/model/navigation.js",
-  "src/assets/js/classes/controller/controller.js",
   "src/assets/js/classes/view/view.js"
 ]
