@@ -12,14 +12,14 @@ const firestore = firebase.firestore();
 
 // listen for auth status changes
 
-auth.onAuthStateChanged(user => {
-    if (user) {
-      console.log('user logged in: ', user);
+// auth.onAuthStateChanged(user => {
+//     if (user) {
+//       console.log('user logged in: ', user);
 
-    } else {
-      console.log('user logged out');
-    }
-})
+//     } else {
+//       console.log('user logged out');
+//     }
+// })
 
 
 // sign up
@@ -55,7 +55,7 @@ signupForm.addEventListener('submit', async(e) => {
         }]
       }
     )
-    console.log(userData)
+    // console.log(userData)
 });
 
 // logout
@@ -88,7 +88,7 @@ loginForm.addEventListener('submit', async(e) => {
   });
 
   let userData = await createUserProfileDocument(user)
-  console.log(userData)
+  // console.log(userData)
 
 });
 
@@ -135,4 +135,21 @@ const createUserProfileDocument = async(userAuth, additionalData) => {
     userData = snapShot.data();
   }
   return userData;
+}
+
+const getUserProfileDocument = async(userAuth)=> {
+  if (!userAuth) return  null;
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get();
+
+  let userData;
+
+  if (snapShot.exists){
+    userData = await userRef.get()
+    userData = userData.data();
+    return userData
+  } else {
+    return null
+  }
 }

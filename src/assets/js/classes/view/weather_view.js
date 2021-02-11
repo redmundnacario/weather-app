@@ -1,5 +1,3 @@
-import {Event} from '../event/_event.js';
-
 
 export class WeatherView {
     constructor() {
@@ -222,12 +220,4 @@ export class WeatherView {
             this.forecastWxDaily.appendChild(daily_container)
         }
     }
-
-    // async _bindLoadWeatherData(handler){
-    //     // Event listeners
-    //     let result = await handler()
-    //     console.log(result)
-    //     this.updateCurrentLocationDate(result.current) 
-
-    // }
 }

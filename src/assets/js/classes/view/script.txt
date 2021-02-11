@@ -21,6 +21,10 @@
 
 // getWxData()
 
+
+
+//  GET geocoded data
+
 // import {Geocoding} from '../api/geocoding.js'
 
 // async function getData(){
@@ -43,6 +47,10 @@
 // }
 
 // getData()
+
+
+
+// GET Geolocation
 
 // import {Geolocation} from '../api/geolocation.js'
 
