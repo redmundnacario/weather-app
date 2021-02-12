@@ -44,17 +44,19 @@ export class UserModel{
         this.currentUserData = null;
     }
 
-    getCurrentUserData(){
+    async getCurrentUserData( function1 ){
         auth.onAuthStateChanged(async(user) => {
             if (user) {
                 console.log('user logged in: ', user);
                 this.currentUserData = await getUserProfileDocument(user)
-                console.log(this.currentUserData)
+                function1(user)
             } else {
                 console.log('user logged out');
                 this.currentUserData = null;
+                function1()
             }
-        })
+            console.log(this.currentUserData)
+        })     
     }
 
     addLocationUserData(){
