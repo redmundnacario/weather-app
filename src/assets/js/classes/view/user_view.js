@@ -4,7 +4,7 @@ export class UserView {
         this.loggedInLinks = document.querySelectorAll('.logged-in');
     }
     navigationChange(handler){
-        console.log(handler)
+        // console.log(handler)
         if (handler) {
             // toggle user UI elements
             this.loggedInLinks.forEach(item => item.style.display = 'block');

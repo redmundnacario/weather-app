@@ -12,14 +12,10 @@ const firestore = firebase.firestore();
 
 // listen for auth status changes
 
-// auth.onAuthStateChanged(user => {
-//     if (user) {
-//       console.log('user logged in: ', user);
-
-//     } else {
-//       console.log('user logged out');
-//     }
-// })
+// Current User
+const getCurrentUser = async () =>{
+  return await firebase.auth().currentUser
+}
 
 
 // sign up
@@ -152,4 +148,39 @@ const getUserProfileDocument = async(userAuth)=> {
   } else {
     return null
   }
+}
+
+const AddLocation = (userAuth) => {
+  if (!userAuth) return  null;
+  
+  var userRef = firestore.doc(`users/${userAuth.uid}`);
+
+  // Atomically add a new region to the "regions" array field.
+  userRef.update({
+        locations: firebase.firestore.FieldValue.arrayUnion({
+          "Mandaluyong City": {"lat":1, "lon":2}
+        })
+  });
+
+  // const snapShot = await userRef.get();
+
+  // return snapShot.data()
+
+  // Atomically remove a region from the "regions" array field.
+  // userData.update({
+  //     regions: firebase.firestore.FieldValue.arrayRemove("east_coast")
+  // });
+}
+
+const RemoveLocation = (userAuth) => {
+  if (!userAuth) return  null;
+
+  var userRef = firestore.doc(`users/${userAuth.uid}`);
+
+  userRef.update({
+      locations: firebase.firestore.FieldValue.arrayRemove({
+        "Mandaluyong City": {"lat":1, "lon":2}
+      })
+  });
+
 }

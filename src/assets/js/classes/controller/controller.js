@@ -14,7 +14,7 @@ class Controller {
 
     }
     
-    run () {
+    async run () {
         
 
         this.UserModel.getCurrentUserData(this.UserView.navigationChange.bind(this.UserView))
@@ -23,6 +23,13 @@ class Controller {
             this.WeatherModel.GetSampleData.bind(this.WeatherModel)
             // this.WeatherModel.GetWeatherFxDataFromCurentLocation.bind(this.WeatherModel)
         );
-
+        
+        // console.log(this.UserModel.currentUser)
+        // if(currentUserData) {
+        //     console.log("here")
+        //     setTimeout(()=>{
+        //         this.UserModel.addLocationUserData()
+        //     }, 3000)
+        // }
     }
 }
