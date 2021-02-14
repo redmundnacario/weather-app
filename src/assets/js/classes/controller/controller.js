@@ -18,6 +18,8 @@ class Controller {
         
 
         this.UserModel.getCurrentUserData(this.UserView.navigationChange.bind(this.UserView))
+        this.UserView.addLocationUserData(this.UserModel.addLocationUserData.bind(this.UserModel))
+        this.UserView.removeLocationUserData(this.UserModel.removeLocationUserData.bind(this.UserModel))
 
         this.WeatherView.render(
             this.WeatherModel.GetSampleData.bind(this.WeatherModel)

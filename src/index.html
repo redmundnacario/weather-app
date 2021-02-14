@@ -47,14 +47,17 @@
         <!-- </h1> -->
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in"  style="display: none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-add-location">Add Location</a>
+          </li>
+          <li class="logged-in"  style="display: none;">
+            <button id="removeBtnId" class="waves-effect waves-light btn red darken-2 z-depth-0">Remove Location</button>
+          </li>
           <li class="logged-in" style="display: none;"> 
             <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
           </li>
           <li class="logged-in" style="display: none;">
             <a href="#" class="grey-text" id="logout">Logout</a>
-          </li>
-          <li class="logged-in"  style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Weather</a>
           </li>
           <li class="logged-out"  style="display: none;">
             <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
@@ -123,7 +126,23 @@
         <button class="btn yellow darken-2 z-depth-0">Login</button>
       </form>
     </div>
-  </div>        <svg id="blobId1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  </div>        <!-- Add Location MODAL -->
+<div id="modal-add-location" class="modal">
+    <div class="modal-content">
+      <h4>Add Location</h4><br />
+      <form id="add-location-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Location Name</label>
+        </div>
+        <!-- <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Guide Content</label>
+        </div> -->
+        <button class="btn yellow darken-2 z-depth-0">Create</button>
+      </form>
+    </div>
+</div>        <svg id="blobId1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <path 
     id="blobIdSvg"
     fill="#FA4D56" 

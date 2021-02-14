@@ -41,7 +41,7 @@ export class WeatherModel {
 
 export class UserModel{
     constructor(){
-        // this.currentUser = getCurrentUser();
+        this.currentUser = null;
         this.currentUserData = null;
     }
 
@@ -50,6 +50,7 @@ export class UserModel{
             if (user) {
                 console.log('user logged in: ', user.uid);
                 this.currentUserData = await getUserProfileDocument(user)
+                this.currentUser = user;
                 function1(user)
 
                 // Test the add location
@@ -59,18 +60,19 @@ export class UserModel{
             } else {
                 console.log('user logged out');
                 this.currentUserData = null;
+                this.currentUser = null;
                 function1()
             }
             // console.log(this.currentUser)
         })    
     }
 
-    async addLocationUserData(user){
-        await AddLocation(user) 
+    async addLocationUserData(){
+        await AddLocation(this.currentUser) 
     }
 
-    async removeLocationUserData(user){
-        await RemoveLocation(user)
+    async removeLocationUserData(){
+        await RemoveLocation(this.currentUser)
     }
 
 }
