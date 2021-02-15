@@ -36,6 +36,18 @@ export class WeatherModel {
         return this.weatherData
     }
 
+    async GetWeatherFxData( current_latitude,
+                            current_longitude ) {
+       
+        this.weatherData = await new WeatherAPI()
+                                .getAllWeatherData(current_latitude,
+                                                   current_longitude)
+                                .then(result => result)
+
+        console.log(this.weatherData)
+        return this.weatherData
+    }
+
 
 }
 
@@ -52,11 +64,16 @@ export class UserModel{
                 this.currentUserData = await getUserProfileDocument(user)
                 this.currentUser = user;
                 function1(user)
+                // firestore.collection('guides').onSnapshot(snapshot => {
+                //     setupGuides(snapshot.docs);
+                //     setupUI(user);
+                //   }, err => console.log(err.message));
 
-                // Test the add location
-                // await this.addLocationUserData(user)
-                // Test the remove location
-                // await this.removeLocationUserData(user)
+                firestore.collection("users").doc(user.uid)
+                    .onSnapshot((doc) => {
+                        console.log("Current data: ", doc.data());
+                    });
+
             } else {
                 console.log('user logged out');
                 this.currentUserData = null;
