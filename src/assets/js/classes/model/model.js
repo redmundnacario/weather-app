@@ -84,12 +84,33 @@ export class UserModel{
         })    
     }
 
-    async addLocationUserData(){
-        await AddLocation(this.currentUser) 
+    async searchLocation(placeStr){
+        let geocodeData = await new Geocoding()
+                            .setGeocodingUrl(placeStr)
+                            .getGeocodingData()
+                            .then(result => result)
+
+        // console.log(geocodeData)
+        // filter data get location name and coordinates: "place_name" and "center"
+        const resultArr = geocodeData.features.map(value => {
+            return {
+                [value.text] : {
+                    lat : value.center[1], 
+                    lon : value.center[0],
+                }
+            }
+        })
+        // console.log(resultArr)
+
+        return resultArr
     }
 
-    async removeLocationUserData(){
-        await RemoveLocation(this.currentUser)
+    async addLocationUserData(data){
+        await AddLocation(this.currentUser, data) 
+    }
+
+    async removeLocationUserData(data){
+        await RemoveLocation(this.currentUser, data)
     }
 
 }

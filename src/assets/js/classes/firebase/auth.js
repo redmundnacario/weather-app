@@ -150,16 +150,14 @@ const getUserProfileDocument = async(userAuth)=> {
   }
 }
 
-const AddLocation = (userAuth) => {
+const AddLocation = (userAuth, data) => {
   if (!userAuth) return  null;
   
   var userRef = firestore.doc(`users/${userAuth.uid}`);
 
   // Atomically add a new region to the "regions" array field.
   userRef.update({
-        locations: firebase.firestore.FieldValue.arrayUnion({
-          "Mandaluyong City": {"lat":1, "lon":2}
-        })
+        locations: firebase.firestore.FieldValue.arrayUnion(data)
   });
 
   // const snapShot = await userRef.get();
@@ -172,15 +170,13 @@ const AddLocation = (userAuth) => {
   // });
 }
 
-const RemoveLocation = (userAuth) => {
+const RemoveLocation = (userAuth, data) => {
   if (!userAuth) return  null;
 
   var userRef = firestore.doc(`users/${userAuth.uid}`);
 
   userRef.update({
-      locations: firebase.firestore.FieldValue.arrayRemove({
-        "Mandaluyong City": {"lat":1, "lon":2}
-      })
+      locations: firebase.firestore.FieldValue.arrayRemove(data)
   });
 
 }
