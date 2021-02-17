@@ -57,28 +57,31 @@ export class UserModel{
         this.currentUserData = null;
     }
 
-    async getCurrentUserData( function1 ){
+    async getCurrentUserData( handler1 , handler2 ){
         auth.onAuthStateChanged(async(user) => {
             if (user) {
                 console.log('user logged in: ', user.uid);
                 this.currentUserData = await getUserProfileDocument(user)
                 this.currentUser = user;
-                function1(user)
+        
                 // firestore.collection('guides').onSnapshot(snapshot => {
                 //     setupGuides(snapshot.docs);
                 //     setupUI(user);
                 //   }, err => console.log(err.message));
 
-                firestore.collection("users").doc(user.uid)
+                firestore.doc(`users/${user.uid}`)
                     .onSnapshot((doc) => {
                         console.log("Current data: ", doc.data());
+                        handler1(user);
+                        handler2(user)
                     });
 
             } else {
                 console.log('user logged out');
                 this.currentUserData = null;
                 this.currentUser = null;
-                function1()
+                handler1();
+                handler2();
             }
             // console.log(this.currentUser)
         })    

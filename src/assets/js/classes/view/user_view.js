@@ -1,5 +1,8 @@
 export class UserView {
     constructor(){
+        this.appPage = document.getElementById("app")
+        this.homePage = document.getElementById("home")
+
         this.loggedOutLinks = document.querySelectorAll('.logged-out');
         this.loggedInLinks = document.querySelectorAll('.logged-in');
 
@@ -23,6 +26,16 @@ export class UserView {
             this.loggedInLinks.forEach(item => item.style.display = 'none');
             this.loggedOutLinks.forEach(item => item.style.display = 'block');
           }
+    }
+
+    toggleHomeAndAppPage(user){
+        if (user) {
+            this.appPage.style.display = "block"
+            this.homePage.style.display = "none"
+        } else {
+            this.appPage.style.display = "none"
+            this.homePage.style.display = "block"
+        }
     }
 
     createCollectionsLocation(locationArr){
@@ -56,6 +69,7 @@ export class UserView {
         this.collectionLocation.style.display = 'block';
     }
 
+    // Search and Add Location
     searchLocation(handler1, handler2){
         this.collectionLocation.style.display = 'none';
 
@@ -98,30 +112,6 @@ export class UserView {
         }
     }
     
-    addLocationUserData(handler){
-
-        console.log(this.addLocationBtn)
-
-    //   this.addLocationForm.onsubmit = async(event) => {
-    //       event.preventDefault();
-
-        //   await handler()
-        //       .then(() => {
-        //           // close the create modal & reset form
-              
-        //           M.Modal.getInstance(this.addLocationModal).close();
-
-        //           this.addLocationForm.reset();
-
-        //       })
-        //       .catch(err => {
-
-        //           console.log(err.message);
-
-        //     });
-    //   }
-
-    }
 
     removeLocationUserData(handler){
         

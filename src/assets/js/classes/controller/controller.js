@@ -17,8 +17,10 @@ class Controller {
     async run () {
         
 
-        this.UserModel.getCurrentUserData(this.UserView.navigationChange.bind(this.UserView))
-        // this.UserView.addLocationUserData(this.UserModel.addLocationUserData.bind(this.UserModel))
+        this.UserModel.getCurrentUserData(
+            this.UserView.navigationChange.bind(this.UserView),
+            this.UserView.toggleHomeAndAppPage.bind(this.UserView))
+
         this.UserView.searchLocation(
             this.UserModel.searchLocation.bind(this.UserModel),
             this.UserModel.addLocationUserData.bind(this.UserModel)

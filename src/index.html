@@ -68,7 +68,7 @@
         </span>
       </ul>
     </div>
-</nav>        <section id="home" class="section">
+</nav>        <section id="home" class="section" style="display: none;">
     <div class="container">
         <div class="row">
             <article id="leftArticleId" class="col s12 m6 l6">
@@ -89,11 +89,22 @@
             </article>
         </div>
     </div>
-</section>        <section id="app" class="hidden">
-    <div id="row1"></div>
-    <div id="row2"></div>
-    <div id="row3"></div>
-    <div id="row4"></div>
+</section>        <section id="app" style="display: none;">
+    <!-- <div class="row1"></div>
+    <div class="row2"></div>
+    <div class="row3"></div>
+    <div class="row4"></div> -->
+
+    <div class="row">
+        <ul id="tabs-swipe-demo" class="tabs">
+            <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 1</a></li>
+            <li class="tab col s3"><a href="#test-swipe-2">Test 2</a></li>
+            <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
+          </ul>
+        <div id="test-swipe-1" class="col s12">Test 1</div>
+        <div id="test-swipe-2" class="col s12">Test 2</div>
+        <div id="test-swipe-3" class="col s12">Test 3</div>
+    </div>
 </section>        <!-- SIGN UP MODAL -->
 <div id="modal-signup" class="modal">
     <div class="modal-content">
@@ -155,5 +166,15 @@
     </main>
 </body>
 <!-- Compiled and minified JavaScript -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    // $(document).ready(function(){
+    //     $('.tabs').tabs();
+    // });
+    var tabs = document.querySelector('#tabs-swipe-demo')
+    var tabs_instance = M.Tabs.init(tabs);
+    tabs_instance.select("test-swipe-1")
+    tabs_instance.updateTabIndicator();
+</script>
 </html>

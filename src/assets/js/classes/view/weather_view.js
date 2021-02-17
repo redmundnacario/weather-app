@@ -33,22 +33,22 @@ export class WeatherView {
     async render(handler) {
 
         // Append created elements to Dom
-        this.row1.appendChild(this.currentlocationDate)
-        this.row2.appendChild(this.currentWxDesc)
-        this.row2.appendChild(this.currentStats)
-        this.row3.appendChild(this.forecastWxHourly)
-        this.row4.appendChild(this.forecastWxDaily)
+        // this.row1.appendChild(this.currentlocationDate)
+        // this.row2.appendChild(this.currentWxDesc)
+        // this.row2.appendChild(this.currentStats)
+        // this.row3.appendChild(this.forecastWxHourly)
+        // this.row4.appendChild(this.forecastWxDaily)
 
-        // Load Weather data
-        let result = await handler()
+        // // Load Weather data
+        // let result = await handler()
 
-        // console.log(result)
+        // // console.log(result)
 
-        this.updateCurrentLocationDate(result.current) 
-        this.updateCurrentTemp(result.current) 
-        this.updateCurrentStats(result.current) 
-        this.updateWxHourly(result.forecast.hourly) 
-        this.updateWxDaily(result.forecast.daily)
+        // this.updateCurrentLocationDate(result.current) 
+        // this.updateCurrentTemp(result.current) 
+        // this.updateCurrentStats(result.current) 
+        // this.updateWxHourly(result.forecast.hourly) 
+        // this.updateWxDaily(result.forecast.daily)
     }
 
     updateCurrentLocationDate(data) {
