@@ -85,7 +85,7 @@ export class WeatherView {
     updateCurrentTemp(data){
         this.currentWxDesc.innerHTML = ""
         this.weatherImg = document.createElement("img")
-        this.weatherImg.src= data.weather.icon
+        this.weatherImg.src= `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 
         this.currTemp = document.createElement("h1")
         this.currTemp.className = "currentTemp"
@@ -164,8 +164,10 @@ export class WeatherView {
             let img = document.createElement("img")
             let h4_2 = document.createElement("h4")
             
+            // console.log(value.weather)
             h4_1.innertText = value.dt
-            img.src = value.weather.icon
+            img.src = `https://openweathermap.org/img/wn/${value.weather[0].icon}@2x.png`
+            
             h4_2.innerText= value.feels_like
 
             container.appendChild(h4_1)
@@ -216,7 +218,7 @@ export class WeatherView {
             container = document.createElement("div")
             container.className = "daily-status-box"
             container.innerHTML = `
-            <img src=${value.weather.icon} alt=${value.weather.description}>
+            <img src="https://openweathermap.org/img/wn/${value.weather[0].icon}@2x.png" alt=${value.weather.description}>
             `
             daily_container.appendChild(container)
             

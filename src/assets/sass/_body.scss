@@ -39,3 +39,45 @@ section{
         opacity: 0.6;
     }
 }
+
+/* 
+    FONTS
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&family=Roboto:wght@400;700&display=swap');
+h1{
+    font: 700 3vh/1.2 "Poppins", sans-serif;
+}
+
+h2 {
+    font: 400 2vh/1.2 "Poppins", sans-serif;
+}
+
+h3 {
+    font: 400 1.5vh/1.2 "Poppins", sans-serif;
+    color: #b6b6b6;
+}
+
+h4 {
+    font: 400 1.2vh/1.2 "Poppins", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin:0 0 1vh 0;
+}
+h5 {
+    font:300 3vh/1.2 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+h6 {
+    font: 100 2vh/1.2 'Poppins', sans-serif;
+}
+th {
+    font: 700 1.2vh 'Roboto', sans-serif;
+    /* text-transform: uppercase; */
+}
+p, td, input, label, option {
+    font: 400 1.2vh 'Roboto', sans-serif;
+    margin: 0;
+}
