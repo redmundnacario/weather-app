@@ -53,9 +53,9 @@
           <li class="logged-in"  style="display: none;">
             <button id="removeBtnId" class="waves-effect waves-light btn red darken-2 z-depth-0">Remove Location</button>
           </li>
-          <li class="logged-in" style="display: none;"> 
+          <!-- <li class="logged-in" style="display: none;"> 
             <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
-          </li>
+          </li> -->
           <li class="logged-in" style="display: none;">
             <a href="#" class="grey-text" id="logout">Logout</a>
           </li>
@@ -89,21 +89,22 @@
             </article>
         </div>
     </div>
-</section>        <section id="app" style="display: none;">
-    <!-- <div class="row1"></div>
+</section>        <section id="app"  class="section" style="display: none;">
+    <div class="row1"></div>
     <div class="row2"></div>
     <div class="row3"></div>
-    <div class="row4"></div> -->
-
-    <div class="row">
-        <ul id="tabs-swipe-demo" class="tabs">
-            <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 1</a></li>
-            <li class="tab col s3"><a href="#test-swipe-2">Test 2</a></li>
-            <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
-          </ul>
-        <div id="test-swipe-1" class="col s12">Test 1</div>
-        <div id="test-swipe-2" class="col s12">Test 2</div>
-        <div id="test-swipe-3" class="col s12">Test 3</div>
+    <div class="row4"></div>
+    <div id="container">
+        <div id="tabs-collection" class="row">
+            <ul id="tabs-swipe-demo" class="tabs">
+                <li class="tab col s3"><a href="#test-swipe-1">Test 1</a></li>
+            </ul>
+            <div id="tabs-content"></div>
+            <!-- <div id="test-swipe-1" class="col s12">Test 1</div>
+            <div id="test-swipe-2" class="col s12">Test 2</div>
+            <div id="test-swipe-3" class="col s12">Test 3</div> -->
+        </div>
+        
     </div>
 </section>        <!-- SIGN UP MODAL -->
 <div id="modal-signup" class="modal">
@@ -156,25 +157,14 @@
       <ul id="locationCollection" class="collection with-header" style="display: none;">
       </ul>
     </div>
-</div>        <svg id="blobId1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path 
-    id="blobIdSvg"
-    fill="#FA4D56" 
-    d="M34.9,-52.9C45.7,-47.4,55.1,-38.4,59,-27.6C63,-16.8,61.4,-4.1,58.6,7.7C55.9,19.6,51.9,30.5,44.4,37.7C37,44.8,26,48.1,16.2,47.6C6.3,47,-2.4,42.6,-10.9,39.2C-19.4,35.8,-27.6,33.4,-38.9,28.9C-50.1,24.4,-64.5,17.9,-69.5,7.7C-74.5,-2.4,-70.1,-16.2,-63.2,-27.9C-56.4,-39.6,-47,-49.1,-36.1,-54.6C-25.1,-60.1,-12.6,-61.5,-0.2,-61.1C12.1,-60.7,24.1,-58.5,34.9,-52.9Z" 
-    transform="translate(100 100)" />
-</svg>        <!-- <img id="blobId1" src="./assets/img/blob.svg" alt=""> -->
+</div>        <!-- _blob_svg.kit -->
+        <!-- <img id="blobId1" src="./assets/img/blob.svg" alt=""> -->
     </main>
 </body>
 <!-- Compiled and minified JavaScript -->
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-    // $(document).ready(function(){
-    //     $('.tabs').tabs();
-    // });
-    var tabs = document.querySelector('#tabs-swipe-demo')
-    var tabs_instance = M.Tabs.init(tabs);
-    tabs_instance.select("test-swipe-1")
-    tabs_instance.updateTabIndicator();
+    // Tabs in App Page
 </script>
 </html>

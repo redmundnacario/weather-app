@@ -1,10 +1,10 @@
 #app {
     width:40vw;
 
-    #row2 {
+    .row2 {
         display:flex;
 
-        #currentWxDescId{
+        .currentWxDesc{
             display: grid;
             grid-template-columns: 50% 50%;
             width: 50%;
@@ -12,7 +12,7 @@
             
         }
 
-        #currentStatsId {
+        .currentStats {
             display: grid;
             grid-template-columns: 30% 30% 30%;
             width: 50%;
@@ -24,16 +24,16 @@
         }
     }
 
-    #row3 {
-        #WxHourlyId{
+    .row3 {
+        .WxHourly{
             
             display: flex;
             justify-content: space-between;
             // flex-flow: column;
         }
     }
-    #row4 {
-        #WxDailyId{
+    .row4 {
+        .WxDaily{
             display: flex;
             flex-flow: column;
             width:100%;

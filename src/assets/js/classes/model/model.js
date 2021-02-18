@@ -24,7 +24,8 @@ export class WeatherModel {
             } = await new Geolocation()
                         .parseLocation()
                         .then(result => result)
-        // console.log(result)
+        // console.log(current_latitude, 
+        //             current_longitude)
         
 
         this.weatherData = await new WeatherAPI()
@@ -32,13 +33,13 @@ export class WeatherModel {
                                                    current_longitude)
                                 .then(result => result)
 
-        console.log(this.weatherData)
+        // console.log(this.weatherData)
         return this.weatherData
     }
 
     async GetWeatherFxData( current_latitude,
                             current_longitude ) {
-       
+        console.log("here")
         this.weatherData = await new WeatherAPI()
                                 .getAllWeatherData(current_latitude,
                                                    current_longitude)
@@ -55,25 +56,31 @@ export class UserModel{
     constructor(){
         this.currentUser = null;
         this.currentUserData = null;
+        this.weatherModel
     }
 
-    async getCurrentUserData( handler1 , handler2 ){
+    async getCurrentUserData( handler1,
+                              handler2,
+                              handler3,
+                              handler4, 
+                              handler5 ){
         auth.onAuthStateChanged(async(user) => {
             if (user) {
                 console.log('user logged in: ', user.uid);
                 this.currentUserData = await getUserProfileDocument(user)
                 this.currentUser = user;
-        
-                // firestore.collection('guides').onSnapshot(snapshot => {
-                //     setupGuides(snapshot.docs);
-                //     setupUI(user);
-                //   }, err => console.log(err.message));
 
                 firestore.doc(`users/${user.uid}`)
                     .onSnapshot((doc) => {
                         console.log("Current data: ", doc.data());
                         handler1(user);
                         handler2(user)
+
+                        if (doc.data().locations.length){
+                            handler3(doc.data().locations , handler4, handler5)
+                        }
+
+                        // handler4(handler5)
                     });
 
             } else {

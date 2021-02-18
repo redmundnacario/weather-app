@@ -40,15 +40,24 @@ signupForm.addEventListener('submit', async(e) => {
         return cred
     });
 
+    let { 
+      current_latitude, 
+      current_longitude
+      } = await new Geolocation()
+                  .parseLocation()
+                  .then(result => result)
+
     let userData = await createUserProfileDocument(user,
       {
       locations : 
-        [{
-          sample: {
-            lat: null,
-            lon: null,
+        [
+          {
+            default : {
+              lat : current_latitude,
+              lon : current_longitude
             }
-        }]
+          }
+        ]
       }
     )
     // console.log(userData)

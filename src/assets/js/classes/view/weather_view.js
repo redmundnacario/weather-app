@@ -1,13 +1,27 @@
 
 export class WeatherView {
     constructor() {
-        // Dom Selectors
-        this.app = document.getElementById("app") //app section 
+       
+    }
 
-        this.row1 = document.getElementById("row1")
-        this.row2 = document.getElementById("row2")
-        this.row3 = document.getElementById("row3")
-        this.row4 = document.getElementById("row4")
+    async render(handler , lat, lon) {
+
+         // Dom Selectors
+        // this.app = document.getElementById("app") //app section 
+        this.weatherView = document.createElement("div")
+
+        this.row1 = document.createElement("div")
+        this.row1.className = "row1"
+
+        this.row2 = document.createElement("div")
+        this.row2.className = "row2"
+
+        this.row3 = document.createElement("div")
+        this.row3.className = "row3"
+
+        this.row4 = document.createElement("div")
+        this.row4.className = "row4"
+
 
         // CREATE ELEMENTS
 
@@ -23,32 +37,38 @@ export class WeatherView {
         this.forecastWxDaily = document.createElement("div")
 
         //CURRENT WEATHER
-        this.currentlocationDate.id = "locationDateId"
-        this.currentWxDesc.id = "currentWxDescId"
-        this.currentStats.id = "currentStatsId"
-        this.forecastWxHourly.id = "WxHourlyId"
-        this.forecastWxDaily.id = "WxDailyId"
-    }
+        this.currentlocationDate.className = "locationDate"
+        this.currentWxDesc.className = "currentWxDesc"
+        this.currentStats.className = "currentStats"
+        this.forecastWxHourly.className = "WxHourly"
+        this.forecastWxDaily.className = "WxDaily"
 
-    async render(handler) {
+        /////////
 
         // Append created elements to Dom
-        // this.row1.appendChild(this.currentlocationDate)
-        // this.row2.appendChild(this.currentWxDesc)
-        // this.row2.appendChild(this.currentStats)
-        // this.row3.appendChild(this.forecastWxHourly)
-        // this.row4.appendChild(this.forecastWxDaily)
+        this.row1.appendChild(this.currentlocationDate)
+        this.row2.appendChild(this.currentWxDesc)
+        this.row2.appendChild(this.currentStats)
+        this.row3.appendChild(this.forecastWxHourly)
+        this.row4.appendChild(this.forecastWxDaily)
 
-        // // Load Weather data
-        // let result = await handler()
+        // Load Weather data
+        let result = await handler(lat, lon)
 
-        // // console.log(result)
+        // console.log(result)
 
-        // this.updateCurrentLocationDate(result.current) 
-        // this.updateCurrentTemp(result.current) 
-        // this.updateCurrentStats(result.current) 
-        // this.updateWxHourly(result.forecast.hourly) 
-        // this.updateWxDaily(result.forecast.daily)
+        this.updateCurrentLocationDate(result.current) 
+        this.updateCurrentTemp(result.current) 
+        this.updateCurrentStats(result.current) 
+        this.updateWxHourly(result.forecast.hourly) 
+        this.updateWxDaily(result.forecast.daily)
+
+        this.weatherView.appendChild(this.row1)
+        this.weatherView.appendChild(this.row2)
+        this.weatherView.appendChild(this.row3)
+        this.weatherView.appendChild(this.row4)
+        // console.log(this.weatherView)
+        return this.weatherView 
     }
 
     updateCurrentLocationDate(data) {
@@ -68,7 +88,7 @@ export class WeatherView {
         this.weatherImg.src= data.weather.icon
 
         this.currTemp = document.createElement("h1")
-        this.currTemp.id = "currentTempId"
+        this.currTemp.className = "currentTemp"
         this.currTemp.innerText = data.main.feels_like
 
         this.weatherDescription = document.createElement("div")
