@@ -18,6 +18,9 @@ export class WeatherView {
 
         this.row3 = document.createElement("div")
         this.row3.className = "row3"
+        let heading = document.createElement("h2")
+        heading.innerText = "Todays Weather"
+        this.row3.appendChild(heading)
 
         this.row4 = document.createElement("div")
         this.row4.className = "row4"
@@ -59,7 +62,7 @@ export class WeatherView {
 
         this.updateCurrentLocationDate(result.current) 
         this.updateCurrentTemp(result.current) 
-        this.updateCurrentStats(result.current) 
+        this.updateCurrentStats(result.current , result.forecast.hourly[0]) 
         this.updateWxHourly(result.forecast.hourly) 
         this.updateWxDaily(result.forecast.daily)
 
@@ -85,11 +88,13 @@ export class WeatherView {
     updateCurrentTemp(data){
         this.currentWxDesc.innerHTML = ""
         this.weatherImg = document.createElement("img")
-        this.weatherImg.src= `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        this.weatherImg.src= `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
+        this.containerWeatherImg = document.createElement("div")
+        this.containerWeatherImg.appendChild(this.weatherImg)
 
         this.currTemp = document.createElement("h1")
         this.currTemp.className = "currentTemp"
-        this.currTemp.innerText = data.main.feels_like
+        this.currTemp.innerText = data.main.feels_like + "˚"
 
         this.weatherDescription = document.createElement("div")
         this.weatherDescription.innerHTML = `<p>${data.weather[0].description}</p>`
@@ -98,38 +103,38 @@ export class WeatherView {
         container.appendChild(this.currTemp)
         container.appendChild(this.weatherDescription)
 
-        this.currentWxDesc.appendChild(this.weatherImg)
+        this.currentWxDesc.appendChild(this.containerWeatherImg)
         this.currentWxDesc.appendChild(container)
     }
 
-    updateCurrentStats(data){
+    updateCurrentStats(data , dataFxRain){
 
         this.currentStats.innerHTML = ""
 
         let status_list = {
             "tempMax": {
                 title: "High",
-                data: data.main.temp_max
+                data: data.main.temp_max + "˚"
             },
             "wind":{
                 title: "Wind",
-                data: data.wind.speed
+                data: data.wind.speed + " m/s"
             },
             "sunrise" : {
                 title: "Sunrise",
-                data:  data.sys.sunrise
+                data:  covertUnixToHoursMinutesPHT(data.sys.sunrise)
             },
             "tempMin":{
                 title: "Low",
-                data: data.main.temp_min
+                data: data.main.temp_min + "˚"
             } ,
             "rain":{
                 title: "Rain",
-                data:  `0%`
+                data: Math.floor(dataFxRain["pop"] * 100) + `%`
             } ,
             "sunset":{
                 title: "Sunset",
-                data:  data.sys.sunset
+                data:  covertUnixToHoursMinutesPHT(data.sys.sunset)
             }
         }
 
@@ -153,22 +158,22 @@ export class WeatherView {
     }
 
     updateWxHourly(data){
-        let data_holder = data.slice(0,8)
+        let data_holder = data.slice(1,9)
         this.forecastWxHourly.innerHTML = ""
 
         for (const value of data_holder){
             let container = document.createElement("div")
             container.className = "hourly-box"
 
-            let h4_1 = document.createElement("h4")
+            let h4_1 = document.createElement("h3")
             let img = document.createElement("img")
-            let h4_2 = document.createElement("h4")
+            let h4_2 = document.createElement("h3")
             
-            // console.log(value.weather)
-            h4_1.innertText = value.dt
+            console.log(value.dt)
+            h4_1.innerText = covertUnixToHoursPHT(value.dt)
             img.src = `https://openweathermap.org/img/wn/${value.weather[0].icon}@2x.png`
             
-            h4_2.innerText= value.feels_like
+            h4_2.innerText= value.feels_like + "˚"
 
             container.appendChild(h4_1)
             container.appendChild(img)
@@ -181,26 +186,30 @@ export class WeatherView {
     updateWxDaily(data){
         this.forecastWxDaily.innerHTML = ""
 
-        let data_holder = data.slice(0,5)
+        let data_holder = data.slice(1,6)
+
+        let heading = document.createElement("h2")
+        heading.innerText = "Next 5 Days"
+        this.forecastWxDaily.appendChild(heading)
 
         for (const value of data_holder){
 
             let status_list = {
                 "tempMin":{
                     title: "Low",
-                    data: value.temp.min
+                    data: value.temp.min + "˚"
                 } ,
                 "tempMax": {
                     title: "High",
-                    data: value.temp.max
+                    data: value.temp.max + "˚"
                 },
                 "wind":{
                     title: "Wind",
-                    data: value.wind_speed
+                    data: value.wind_speed + " m/s"
                 },
                 "rain":{
                     title: "Rain",
-                    data:  Math.floor(value.pop * 100)
+                    data:  Math.floor(value.pop * 100) + "%"
                 }
             } 
             let daily_container = document.createElement("div")
@@ -209,8 +218,8 @@ export class WeatherView {
             let container = document.createElement("div")
             container.className = "daily-status-box"
             container.innerHTML = `
-            <h2>${value.dt}<h2>
-            <h4>${value.dt}<h4>
+            <h2>${covertUnixToDayPHT(value.dt)}<h2>
+            <h4>${covertUnixToDatePHT(value.dt)}<h4>
             `
             daily_container.appendChild(container)
 
@@ -229,12 +238,12 @@ export class WeatherView {
                 let status_obj = status_list[status]
 
                 let h2 = document.createElement("h2")
-                let h4 = document.createElement("h4")
+                let h3 = document.createElement("h3")
                 h2.innerText = status_obj.data
-                h4.innerText = status_obj.title
+                h3.innerText = status_obj.title
 
                 container.appendChild(h2)
-                container.appendChild(h4)
+                container.appendChild(h3)
 
                 daily_container.appendChild(container)
             }
