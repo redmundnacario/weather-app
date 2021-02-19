@@ -1,36 +1,19 @@
 #home {
-    // width:70vw;
-    // min-height: 80vh !important;
-    // display: flex;
-    // justify-content: center;
+    min-height: 95vh !important;
 
     #leftArticleId{
-        // width:50%;
-        
-        // display: flex;
-        // align-items: center;
-        #indtroduction{
-            // margin-top:20vh;
+        width:100%;
+        height: 95vh ;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
 
-            .homeBtnContainer{
-                // margin-top: 10vh;
-            }
+        #homeImageId {
+            height: 40vh;
         }
-    }
-    #rightArticleId{
-        // width:50%;
 
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-
-        #homeImageId{
-            // width:30%;
-            // height: auto;
-            // position: absolute;
-            // top: 20vh; 
-            // left: 75vw;
-            // transform: translate(-30vh)
+        .homeBtnContainer {
+            margin-top: 4vh;
         }
     }
 }

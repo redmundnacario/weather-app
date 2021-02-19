@@ -49,7 +49,7 @@ export class UserView {
                 <li class="collection-item">
                     <div>${Object.keys(value)[0]}
                         <button 
-                            class="secondary-content waves-effect waves-light btn-small"
+                            class="btn-floating secondary-content waves-effect waves-light btn-small"
                             data-index="${i}" 
                         >
                             <i class="material-icons">add</i>

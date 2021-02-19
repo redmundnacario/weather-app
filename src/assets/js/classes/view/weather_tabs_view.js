@@ -30,11 +30,11 @@ export class WeatherTabsView {
                 let li;
                 if(index == 0){
                     li =`
-                    <li class="tab col s3"><a clas="active" href="#tab-${index}">${locationName}</a></li>
+                    <li class="tab col s3"><a class="active light-blue-text" href="#tab-${index}">${locationName}</a></li>
                     `
                 } else {
                     li = `
-                    <li class="tab col s3"><a href="#tab-${index}">${locationName}</a></li>
+                    <li class="tab col s3"><a href="#tab-${index}" class="light-blue-text">${locationName}</a></li>
                     `
                 }
 
@@ -63,6 +63,16 @@ export class WeatherTabsView {
             this.tabs_instance = M.Tabs.init(tabs);
             this.tabs_instance.select("tab-0")
             this.tabs_instance.updateTabIndicator();
+            // document.querySelector('.tabs-content.carousel').style.height = window.innerHeight + "px";
+            // var slider= document.querySelector('.tabs-content.carousel.carousel-slider')
+            
+            // setTimeout(( )=> {
+            //     var slider= document.querySelector('.tabs-content.carousel.carousel-slider')
+            //     slider.style.height = "auto"
+            // },1000)
+            
+            // console.log(slider)
+            // $('.tabs-content.carousel.carousel-slider').css("height","auto");
             
         }
     }

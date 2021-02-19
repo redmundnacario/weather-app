@@ -27,26 +27,13 @@ class Controller {
             // this.WeatherModel.GetWeatherFxDataFromCurentLocation.bind(this.WeatherModel)
             this.WeatherModel.GetWeatherFxData.bind(this.WeatherModel)
         )
-        // let result = await this.WeatherModel.GetWeatherFxData(14.576328, 121.035208)
-        // console.log(result)
-
-        // let result1 = await this.WeatherModel.GetWeatherFxDataFromCurentLocation()
-        // console.log(result1)
-        // this.WeatherModel.GetWeatherFxDataFromCurentLocation.bind(this.WeatherModel)
+        
         this.UserView.searchLocation(
             this.UserModel.searchLocation.bind(this.UserModel),
             this.UserModel.addLocationUserData.bind(this.UserModel),
             )
-        this.UserView.removeLocationUserData(this.UserModel.removeLocationUserData.bind(this.UserModel))
+        // this.UserView.removeLocationUserData(this.UserModel.removeLocationUserData.bind(this.UserModel))
 
         
-        
-        // console.log(this.UserModel.currentUser)
-        // if(currentUserData) {
-        //     console.log("here")
-        //     setTimeout(()=>{
-        //         this.UserModel.addLocationUserData()
-        //     }, 3000)
-        // }
     }
 }

@@ -38,17 +38,16 @@
 <body>
     <main>
         <!-- Navbar -->
-<nav class="z-depth-0 transparent">
+<nav class="">
     <div class="nav-wrapper container">
-      <a href="#" class="brand-logo grey-text">
+      <a href="#" class="nav-text black-text">
         <!-- <img src="img/logo.svg" style="width: 180px; margin-top: 10px;"> -->
-        <!-- <h1 class="appName-navbar"> -->
-            Payong Panahon
-        <!-- </h1> -->
+         Payong Panahon
       </a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class=" right hide-on-med-and-down">
           <li class="logged-in"  style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-add-location">Add Location</a>
+            <a href="#" class="nav-text black-text modal-trigger" data-target="modal-add-location">Locations</a>
           </li>
           <!-- <li class="logged-in"  style="display: none;">
             <button id="removeBtnId" class="waves-effect waves-light btn red darken-2 z-depth-0">Remove Location</button>
@@ -57,38 +56,64 @@
             <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
           </li> -->
           <li class="logged-in" style="display: none;">
-            <a href="#" class="grey-text" id="logout">Logout</a>
+            <a href="#" class="nav-text black-text" id="logout">Logout</a>
           </li>
           <li class="logged-out"  style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+            <a href="#" class="nav-text black-text modal-trigger" data-target="modal-login">Login</a>
           </li>
           <li class="logged-out"  style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+            <a href="#" class="nav-text black-text modal-trigger" data-target="modal-signup">Sign up</a>
           </li>
         </span>
       </ul>
     </div>
-</nav>        <section id="home" class="section" style="display: none;">
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li class="logged-in"  style="display: none;">
+    <a href="#" class="nav-text black-text modal-trigger" data-target="modal-add-location">Locations</a>
+  </li>
+  <!-- <li class="logged-in"  style="display: none;">
+    <button id="removeBtnId" class="waves-effect waves-light btn red darken-2 z-depth-0">Remove Location</button>
+  </li> -->
+  <!-- <li class="logged-in" style="display: none;"> 
+    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+  </li> -->
+  <li class="logged-in" style="display: none;">
+    <a href="#" class="nav-text black-text" id="logout">Logout</a>
+  </li>
+  <li class="logged-out"  style="display: none;">
+    <a href="#" class="nav-text black-text modal-trigger" data-target="modal-login">Login</a>
+  </li>
+  <li class="logged-out"  style="display: none;">
+    <a href="#" class="nav-text black-text modal-trigger" data-target="modal-signup">Sign up</a>
+  </li>
+</ul>        <section id="home" class="section" style="display: none;">
     <div class="container">
         <div class="row">
-            <article id="leftArticleId" class="col s12 m6 l6">
-                <div id="indtroduction">
+            <article id="leftArticleId" class="center-align col s12 m6 l6">
+                <div>
+                    <img id="homeImageId"  src="./assets/img/weather-animate.svg" alt="">
                     <h1 id="companyNameH1">Payong Panahon</h1>
                     <h3 id="introContent" class="grey-text">Be updated with the latest weather information
                         at your fingertips!
                     </h3>
                     <div class="homeBtnContainer">
-                        <button class="waves-effect waves-light btn btn-large">
-                            <i class="material-icons right">cloud</i>Subscribe</button>
+                        <button class="waves-effect waves-light btn btn-large light-blue modal-trigger" data-target="modal-signup">
+                            <i class="material-icons right" >cloud</i>Subscribe</button>
                     </div>
-        
+
                 </div>
-            </article>
-            <article id="rightArticleId" class="col s12 m6 l6">
-                <img id="homeImageId" src="./assets/img/weather-animate.svg" alt="">
             </article>
         </div>
     </div>
+    <svg id="blobId1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path 
+        id="blobIdSvg"
+        fill="#FA4D56" 
+        d="M34.9,-52.9C45.7,-47.4,55.1,-38.4,59,-27.6C63,-16.8,61.4,-4.1,58.6,7.7C55.9,19.6,51.9,30.5,44.4,37.7C37,44.8,26,48.1,16.2,47.6C6.3,47,-2.4,42.6,-10.9,39.2C-19.4,35.8,-27.6,33.4,-38.9,28.9C-50.1,24.4,-64.5,17.9,-69.5,7.7C-74.5,-2.4,-70.1,-16.2,-63.2,-27.9C-56.4,-39.6,-47,-49.1,-36.1,-54.6C-25.1,-60.1,-12.6,-61.5,-0.2,-61.1C12.1,-60.7,24.1,-58.5,34.9,-52.9Z" 
+        transform="translate(100 100)" />
+    </svg>
 </section>        <section id="app"  class="section" style="display: none;">
     <div class="container">
         <div id="tabs-collection" class="row">
@@ -103,9 +128,9 @@
         
     </div>
 </section>        <!-- SIGN UP MODAL -->
-<div id="modal-signup" class="modal">
+<div id="modal-signup" class="modal l6">
     <div class="modal-content">
-      <h4>Sign up</h4><br />
+      <h1>Sign up</h1><br />
       <form id="signup-form" method="POST">
         <div class="input-field">
           <input type="email" id="signup-email" required />
@@ -113,15 +138,15 @@
         </div>
         <div class="input-field">
           <input type="password" id="signup-password" required />
-          <label for="signup-password">Choose password</label>
+          <label for="signup-password">Password</label>
         </div>
-        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        <button class="btn light-blue darken-2 z-depth-0">Sign up</button>
       </form>
     </div>
 </div>        <!-- LOGIN MODAL -->
 <div id="modal-login" class="modal">
     <div class="modal-content">
-      <h4>Login</h4><br />
+      <h1>Login</h1><br />
       <form id="login-form">
         <div class="input-field">
           <input type="email" id="login-email" required />
@@ -131,19 +156,19 @@
           <input type="password" id="login-password" required />
           <label for="login-password">Your password</label>
         </div>
-        <button class="btn yellow darken-2 z-depth-0">Login</button>
+        <button class="btn light-blue darken-2 z-depth-0">Login</button>
       </form>
     </div>
   </div>        <!-- Add Location MODAL -->
 <div id="modal-add-location" class="modal">
     <div class="modal-content">
-      <h4>Add Location</h4><br />
+      <h1>Add Location</h1><br />
       <form id="add-location-form">
         <div id="searchInputTxt" class="input-field">
           <input type="text" id="nameLocation" required>
           <label for="nameLocation">Location Name</label>
         </div>
-        <button id="searchBtn"class="btn yellow darken-2 z-depth-0"><i class="material-icons">search</i></button>
+        <button id="searchBtn"class="btn light-blue darken-2 z-depth-0"><i class="material-icons">search</i></button>
         <!-- <div class="input-field">
           <textarea id="content" class="materialize-textarea" required></textarea>
           <label for="content">Guide Content</label>
@@ -155,12 +180,43 @@
     </div>
 </div>        <!-- _blob_svg.kit -->
         <!-- <img id="blobId1" src="./assets/img/blob.svg" alt=""> -->
-    </main>
+        <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h2>About Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h2 class="white-text">Connect</h2>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center-align">&copy; 2021 Payong Panahon</div>
+    </div>
+</footer>    </main>
 </body>
 <!-- Compiled and minified JavaScript -->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-    // Tabs in App Page
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     var elems = document.querySelectorAll('.sidenav');
+    //     var instances = M.Sidenav.init(elems, options);
+    // });
+
+    // Or with jQuery
+
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
 </script>
 </html>

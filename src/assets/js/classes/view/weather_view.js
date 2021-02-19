@@ -186,10 +186,10 @@ export class WeatherView {
     updateWxDaily(data){
         this.forecastWxDaily.innerHTML = ""
 
-        let data_holder = data.slice(1,6)
+        let data_holder = data.slice(1,7)
 
         let heading = document.createElement("h2")
-        heading.innerText = "Next 5 Days"
+        heading.innerText = "Next 6 Days"
         this.forecastWxDaily.appendChild(heading)
 
         for (const value of data_holder){
@@ -203,10 +203,10 @@ export class WeatherView {
                     title: "High",
                     data: value.temp.max + "˚"
                 },
-                "wind":{
-                    title: "Wind",
-                    data: value.wind_speed + " m/s"
-                },
+                // "wind":{
+                //     title: "Wind",
+                //     data: value.wind_speed + " m/s"
+                // },
                 "rain":{
                     title: "Rain",
                     data:  Math.floor(value.pop * 100) + "%"

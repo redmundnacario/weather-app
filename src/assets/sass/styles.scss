@@ -10,6 +10,8 @@
 @import 'app';
 // app locatio modal
 @import 'add_location_modal';
+// footer
+@import 'footer';
 // // modal
 // @import 'modal';
 // // SlideShow
@@ -20,3 +22,17 @@
 .hidden {
     display: none
 }
+
+.modal{
+    @include sm {
+        width: 95vw !important;
+    }
+    @include md {
+        width: 80vw !important;
+    }
+    @include lg {
+        width: 30vw !important;
+    }
+}
+
+// .tabs-content.carousel .carousel-item { height: 100% !important;}

@@ -12,3 +12,11 @@
         width: 10%
     }
 }
+
+.tabs .tab a:focus, .tabs .tab a:focus.active{
+    background: transparent;
+}
+
+.tabs .indicator{
+    background-color: #03a9f4;
+  }
